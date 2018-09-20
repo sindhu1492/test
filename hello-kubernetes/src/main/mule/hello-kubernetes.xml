@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="60e548d8-13b6-4ef6-b70f-2a0c1c33383f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="hello-kubernetesFlow" doc:id="c1b52323-9a63-463c-bae3-63f9e54e6413" >
+		<http:listener doc:name="Listener" doc:id="34cceec7-eecc-4cbf-907f-90d9686497fe" config-ref="HTTP_Listener_config" path="/"/>
+		<set-payload value="Hello Kubernetes" doc:name="Set Payload" doc:id="78bb21ac-24e5-434e-b3f3-8403cd291764" />
+	</flow>
+</mule>
